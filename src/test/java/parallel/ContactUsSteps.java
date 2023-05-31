@@ -36,7 +36,8 @@ public class ContactUsSteps {
 		String email = testData.get(rowNumber).get("email");
 		String contactNumber = testData.get(rowNumber).get("contactNumber");
 		String message = testData.get(rowNumber).get("message");
-		contactUsPage.fillContactUsForm(firstName,lastName,email,contactNumber,message);
+		String selectText="Central";
+		contactUsPage.fillContactUsForm(firstName,lastName,email,contactNumber,selectText,message);
 
 		System.out.println(firstName+ lastName+ email+ contactNumber+ message);
 

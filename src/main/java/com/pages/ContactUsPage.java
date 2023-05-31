@@ -13,6 +13,7 @@ public class ContactUsPage {
 	private By email = By.id("input_10_5");
 	private By message = By.id("input_10_4");
 	private By contactNumber = By.id("input_10_6");
+	private By selectElement = By.id("input_10_3");
 	private By cookieNotice = By.xpath("//*[@id='cn-close-notice']");
 
 
@@ -26,7 +27,7 @@ public class ContactUsPage {
 		return driver.getTitle();
 	}
 	
-	public void fillContactUsForm(String firstNameText,String lastNameText, String emailText,String contactNumberText,String messageText) {
+	public void fillContactUsForm(String firstNameText,String lastNameText, String emailText,String contactNumberText,String selectText, String messageText) {
 		//Select select = new Select(driver.findElement(subjectHeading));
 		//select.selectByVisibleText(heading);
 		if(cookieNotice!=null){driver.findElement(cookieNotice).click();}
@@ -34,6 +35,9 @@ public class ContactUsPage {
 		driver.findElement(lastName).sendKeys(lastNameText);
 		driver.findElement(email).sendKeys(emailText);
 		driver.findElement(contactNumber).sendKeys(contactNumberText);
+		Select select = new Select(driver.findElement(selectElement));
+
+		select.selectByVisibleText(selectText);
 		driver.findElement(message).sendKeys(messageText);
 
 	}
