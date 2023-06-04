@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    container:
+      image: markhobson/maven-chrome:jdk-17
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Maven options
+        run: export MAVEN_OPTS="-Dmaven.repo.local=.m2/repository"
+
+      - name: Build and test
+        run: |
+          mvn test -Dtest=testrunners.MyTestRunner -DfailIfNoTests=false
+          cp -R htmlOutput/ target/
+          cp -R pdfOutput/ target/
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results
+          path: target/
