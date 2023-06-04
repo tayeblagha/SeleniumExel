@@ -1,14 +1,14 @@
 $(document).ready(function() {
 CucumberHTML.timelineItems.pushArray([
   {
-    "id": "63c623aa-610a-49be-aad5-f40f95e62f90",
+    "id": "fc8777ed-0193-4625-9b85-efb339f39b8a",
     "feature": "Contact Us Feature",
     "scenario": "Contact Us scenario with different set of data",
-    "start": 1685359192336,
+    "start": 1685885372205,
     "group": 1,
     "content": "",
     "tags": "@contact_us,",
-    "end": 1685359248221,
+    "end": 1685885393210,
     "className": "passed"
   }
 ]);
